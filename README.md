@@ -77,7 +77,7 @@ static void SETDGACHA(ENetPeer* peer, std::string cmd) {
 	}
 
 	// Load existing JSON file
-	std::ifstream inFile("/database/json/listgacha.json");
+	std::ifstream inFile("./database/json/listgacha.json");
 	nlohmann::json jsonData;
 	if (inFile.is_open()) {
 		try {
@@ -100,7 +100,7 @@ static void SETDGACHA(ENetPeer* peer, std::string cmd) {
 	jsonData["ids"] = itemIds;
 
 	// Save updated JSON to file
-	std::ofstream outFile("/database/json/listgacha.json");
+	std::ofstream outFile("./database/json/listgacha.json");
 	if (outFile.is_open()) {
 		outFile << jsonData.dump(4); // Pretty print with 4 spaces
 		outFile.close();
